@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Mobile - Óscar Interiano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --bajar-servicio-1: 10px;
+  --bajar-servicio-2: 20px;
+  --bajar-servicio-3: 30px;
+  --bajar-servicio-4: 40px;
+  --bajar-servicio-5: 50px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+.seccion-fondo {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  overflow: visible;
+}
+.fondo-principal {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.imagen-union {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  transform: translateY(50%) scaleX(1.05);
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-superior-derecho {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: clamp(110px, 40vw, 190px);
+  z-index: 15;
+}
+.logo-mesa-madera {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(72%, 320px);
+  z-index: 15;
+}
+/* FONDO 1 */
+.contenido-fondo-1 {
+  position: absolute;
+  top: 52%;
+  left: 3%;
+  width: 94%;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  background: radial-gradient(ellipse at left center, rgba(10,35,20,.92), rgba(5,20,10,.75) 70%, transparent);
+  padding: 24px 20px;
+  border-radius: 18px;
+}
+.titulo-principal {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.5rem, 7.5vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 2px 2px 10px rgba(0,0,0,.95);
+  margin-bottom: 8px;
+}
+.subtitulo-lineas {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: #e0d0b0;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,.9);
+}
+.subtitulo-lineas::before,
+.subtitulo-lineas::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(224,208,176,.8), transparent);
+}
+.subtitulo-lineas::before {
+  background: linear-gradient(90deg, transparent, rgba(224,208,176,.8));
+}
+.descripcion-texto {
+  font-size: .82rem;
+  line-height: 1.4;
+  font-weight: 400;
+  text-shadow: 1px 1px 6px rgba(0,0,0,.95);
+  margin-bottom: 18px;
+  max-width: 95%;
+}
+.btn-whatsapp-lianas {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 18px;
+  background: linear-gradient(135deg, #1fa355, #0f6131);
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 35px;
+  border: 2px solid #8bc34a;
+  outline: 1px solid rgba(15,97,49,.8);
+  outline-offset: -5px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .3s ease, background .3s ease;
+}
+.btn-whatsapp-lianas i.fa-whatsapp {
+  font-size: 1.25rem;
+}
+.btn-whatsapp-lianas i.fa-leaf {
+  font-size: .85rem;
+  color: #cddc39;
+  margin: 0 2px;
+}
+.btn-whatsapp-lianas:hover,
+.btn-whatsapp-lianas:active {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #24b862, #12723a);
+  border-color: #d4e157;
+}
+.grilla-caracteristicas {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 16px;
+  gap: 4px;
+}
+.item-caracteristica {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.circulo-icono {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(224,208,176,.6);
+  background: rgba(0,0,0,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  color: #e0d0b0;
+  font-size: .75rem;
+  backdrop-filter: blur(2px);
+}
+.item-caracteristica span {
+  font-size: .6rem;
+  line-height: 1.1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,.9);
+}
+/* BOTÓN WHATSAPP FONDO 5 */
+.boton-whatsapp-fondo5 {
+  position: absolute;
+  bottom: 52%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  z-index: 20;
+}
+/* BOTÓN FLOTANTE */
+.boton-whatsapp-madera {
+  position: fixed;
+  bottom: 22px;
+  right: 18px;
+  width: clamp(58px, 16vw, 76px);
+  height: clamp(58px, 16vw, 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  background: radial-gradient(circle at 35% 30%, #bd8a4c, #865126 35%, #4d2b16 75%, #2c170c);
+  border: 4px solid #d6a45e;
+  box-shadow: 0 0 0 3px #603819, inset 0 0 0 3px #b77b3e, inset 0 0 12px #241307, 0 5px 15px rgba(0,0,0,.8), 0 0 18px rgba(218,165,90,.8), 0 0 30px rgba(255,190,90,.65), 0 0 45px rgba(218,165,90,.4);
+  z-index: 9999;
+  transition: transform .3s ease;
+}
+.boton-whatsapp-madera::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  border: 2px solid #e2b775;
+  box-shadow: inset 0 0 8px rgba(0,0,0,.6), 0 0 5px rgba(255,220,160,.5);
+  pointer-events: none;
+}
+.boton-whatsapp-madera i {
+  font-size: 38px;
+  color: #f5e1bd;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 3px 3px #281408, 0 0 5px rgba(255,220,160,.5);
+}
+.boton-whatsapp-madera:hover,
+.boton-whatsapp-madera:active {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 3px #603819, inset 0 0 0 3px #b77b3e, inset 0 0 12px #241307, 0 5px 20px rgba(0,0,0,.8), 0 0 22px rgba(218,165,90,.9), 0 0 38px rgba(255,190,90,.75);
+}
+/* FONDO 2 - SERVICIOS */
+.contenido-servicios {
+  position: absolute;
+  top: 5%;
+  left: 4%;
+  width: 92%;
+  z-index: 15;
+}
+.titulo-servicios {
+  background: linear-gradient(135deg, #79502f, #442a19);
+  border: 2px solid #c39a5e;
+  border-radius: 14px;
+  padding: 13px 8px;
+  text-align: center;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  opacity: 0;
+  transform: translateY(25px);
+}
+.titulo-servicios h2 {
+  font-family: 'Cinzel', serif;
+  color: #f7e9c9;
+  font-size: 1.55rem;
+  margin-bottom: 5px;
+}
+.titulo-servicios p {
+  color: #ead9b8;
+  font-size: .58rem;
+  letter-spacing: 1.2px;
+}
+.lista-servicios {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tarjeta-servicio {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 94px;
+  background: rgba(255,248,230,.94);
+  border: 1px solid #d5bd91;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(65,43,22,.18);
+  opacity: 0;
+  transform: translateY(30px);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  isolation: isolate;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+/* ESPACIADO ORIGINAL DE LAS TARJETAS */
+.tarjeta-servicio:nth-child(1) { margin-top: var(--bajar-servicio-1); }
+.tarjeta-servicio:nth-child(2) { margin-top: var(--bajar-servicio-2); }
+.tarjeta-servicio:nth-child(3) { margin-top: var(--bajar-servicio-3); }
+.tarjeta-servicio:nth-child(4) { margin-top: var(--bajar-servicio-4); }
+.tarjeta-servicio:nth-child(5) { margin-top: var(--bajar-servicio-5); }
+/* EFECTO DE LUZ */
+.tarjeta-servicio::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), rgba(255,230,160,.55), transparent);
+  transform: rotate(22deg);
+  animation: luz-tarjeta 3.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+.tarjeta-servicio:nth-child(2)::after { animation-delay: .5s; }
+.tarjeta-servicio:nth-child(3)::after { animation-delay: 1s; }
+.tarjeta-servicio:nth-child(4)::after { animation-delay: 1.5s; }
+.tarjeta-servicio:nth-child(5)::after { animation-delay: 2s; }
+@keyframes luz-tarjeta {
+  0%, 55% { left: -80%; }
+  100% { left: 140%; }
+}
+.tarjeta-servicio:hover,
+.tarjeta-servicio:active {
+  transform: scale(1.025);
+  box-shadow: 0 0 12px rgba(255,220,140,.9), 0 0 25px rgba(255,190,90,.55);
+}
+.tarjeta-servicio img {
+  width: 32%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.texto-servicio {
+  padding: 8px 22px 8px 12px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+.texto-servicio h3 {
+  font-size: .78rem;
+  font-weight: 600;
+  color: #30291e;
+  margin-bottom: 7px;
+}
+.texto-servicio p {
+  font-size: .62rem;
+  line-height: 1.5;
+  color: #403b32;
+}
+.flecha-servicio {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: #4b3824;
+  z-index: 3;
+}
+.fondo-servicios.animar .titulo-servicios {
+  animation: aparecer-servicio .7s ease forwards;
+}
+.fondo-servicios.animar .tarjeta-servicio {
+  animation: aparecer-servicio .65s ease forwards;
+}
+.fondo-servicios.animar .tarjeta-servicio:nth-child(1) { animation-delay: .25s; }
+.fondo-servicios.animar .tarjeta-servicio:nth-child(2) { animation-delay: .50s; }
+.fondo-servicios.animar .tarjeta-servicio:nth-child(3) { animation-delay: .75s; }
+.fondo-servicios.animar .tarjeta-servicio:nth-child(4) { animation-delay: 1s; }
+.fondo-servicios.animar .tarjeta-servicio:nth-child(5) { animation-delay: 1.25s; }
+@keyframes aparecer-servicio {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* FONDO 4 - TESTIMONIOS CON VIDEOS */
+.fondo-testimonios {
+  position: relative;
+}
+.galeria-testimonios {
+  position: absolute;
+  top: 24%;
+  left: 3%;
+  width: 94%;
+  z-index: 15;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 12px;
+  row-gap: 18px;
+}
+.testimonio-item {
+  width: 100%;
+  min-width: 0;
+  text-align: center;
+}
+.testimonio-item img,
+.testimonio-item video {
+  display: block;
+  width: 100%;
+  height: clamp(140px, 42vw, 200px);
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px solid #d6b477;
+  box-shadow: 0 4px 12px rgba(0,0,0,.65);
+  cursor: pointer;
+}
+.testimonio-item p {
+  margin-top: 6px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #f7e9c9;
+  text-shadow: 1px 1px 4px #000;
+}
+/* AJUSTES RESPONSIVOS */
+@media (max-width: 480px) {
+  .titulo-principal {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+  }
+  .contenido-fondo-1 {
+    top: 52%;
+    padding: 15px 14px;
+  }
+  .descripcion-texto {
+    font-size: .76rem;
+  }
+  .titulo-servicios h2 {
+    font-size: 1.35rem;
+  }
+  .tarjeta-servicio {
+    height: 88px;
+  }
+}
+/* AJUSTES RESPONSIVOS ADICIONALES */
+@media (max-width: 480px) {
+  .seccion-fondo {
+    max-width: 480px;
+  }
+  .contenido-servicios {
+    top: 5%;
+  }
+  .lista-servicios {
+    gap: clamp(7px, 2.5vw, 12px);
+  }
+  .tarjeta-servicio {
+    height: clamp(72px, 19.5vw, 94px);
+  }
+  .texto-servicio {
+    padding: 6px 20px 6px 9px;
+  }
+}
+/* TESTIMONIOS: dos columnas estables, videos con el mismo tamaño adaptable */
+.galeria-testimonios {
+  top: 24%;
+  left: 3%;
+  width: 94%;
+  column-gap: clamp(6px, 2.5vw, 12px);
+  row-gap: clamp(8px, 3.75vw, 18px);
+}
+.testimonio-item img,
+.testimonio-item video {
+  width: 100%;
+  height: clamp(115px, 41.7vw, 200px);
+  object-fit: contain;
+}
+.testimonio-item p {
+  font-size: clamp(11px, 3.1vw, 15px);
+}
+/* Fondo 5: posición relativa a la imagen, no a píxeles del dispositivo */
+.logo-mesa-madera {
+  bottom: 6%;
+  left: 50%;
+  width: min(72%, 320px);
+}
+.boton-whatsapp-fondo5 {
+  top: 40%;
+  bottom: auto;
+  left: 50%;
+  width: 85%;
+  max-width: 408px;
+  transform: translateX(-50%);
+}
+/* Control flotante proporcional, sin alterar su anclaje a la pantalla */
+.boton-whatsapp-madera {
+  width: clamp(54px, 15.8vw, 76px);
+  height: clamp(54px, 15.8vw, 76px);
+  right: clamp(10px, 3.75vw, 18px);
+  bottom: clamp(12px, 4.6vw, 22px);
+}
+.boton-whatsapp-madera i {
+  font-size: clamp(27px, 7.9vw, 38px);
+}
+/* Evita que los elementos se desborden en teléfonos muy estrechos */
+@media (max-width: 360px) {
+  .contenido-fondo-1 {
+    padding: 9px 10px;
+  }
+  .descripcion-texto {
+    margin-bottom: 10px;
+  }
+  .grilla-caracteristicas {
+    margin-top: 10px;
+  }
+  .tarjeta-servicio {
+    border-radius: 10px;
+  }
+  .texto-servicio p {
+    line-height: 1.25;
+  }
+}
+
+/* LEGIBILIDAD MEJORADA: descripciones de las tarjetas de servicios */
+.texto-servicio h3 {
+  color: #20170e !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.9);
+}
+.texto-servicio p {
+  color: #211a12 !important;
+  font-weight: 700 !important;
+  font-size: clamp(.52rem, 2.25vw, .68rem) !important;
+  line-height: 1.32 !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.95);
+}
+@media (max-width: 360px) {
+  .texto-servicio p {
+    font-size: .54rem !important;
+    line-height: 1.28 !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<!-- FONDO 1 -->
+<div class="seccion-fondo">
+  <img src="imagenes/fondo1.avif" alt="Fondo 1" class="fondo-principal">
+  <img src="imagenes/logo.png" alt="Logo" class="logo-superior-derecho">
+  <div class="contenido-fondo-1">
+    <h1 class="titulo-principal">Óscar<br>Interiano</h1>
+    <div class="subtitulo-lineas">CURANDERO Y GUÍA ESPIRITUAL</div>
+    <p class="descripcion-texto">
+      Curaciones y tratamientos a enfermedades, guía y consejero espiritual, sabiduría en prácticas ancestrales para equilibrar tu cuerpo.
+    </p>
+    <div class="btn-whatsapp-lianas">
+      <i class="fa-solid fa-leaf"></i>
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>Consulta por WhatsApp</span>
+      <i class="fa-solid fa-leaf"></i>
+    </div>
+    <div class="grilla-caracteristicas">
+      <div class="item-caracteristica">
+        <div class="circulo-icono"><i class="fa-regular fa-user"></i></div>
+        <span>Atención<br>personalizada</span>
+      </div>
+      <div class="item-caracteristica">
+        <div class="circulo-icono"><i class="fa-solid fa-spa"></i></div>
+        <span>100%<br>natural</span>
+      </div>
+      <div class="item-caracteristica">
+        <div class="circulo-icono"><i class="fa-solid fa-award"></i></div>
+        <span>Resultados<br>reales</span>
+      </div>
+    </div>
+  </div>
+  <img src="imagenes/union.png" alt="Unión decorativa" class="imagen-union">
+</div>
+<!-- FONDO 2 - SERVICIOS -->
+<div class="seccion-fondo fondo-servicios">
+  <img src="imagenes/fondo2.avif" alt="Fondo 2" class="fondo-principal">
+  <div class="contenido-servicios">
+    <div class="titulo-servicios">
+      <h2>Nuestros Servicios</h2>
+      <p>TRADICIÓN ANCESTRAL PARA TU BIENESTAR</p>
+    </div>
+    <div class="lista-servicios">
+      <div class="tarjeta-servicio">
+        <img src="imagenes/servicio1.avif" alt="Desentierro">
+        <div class="texto-servicio">
+          <h3>Desentierro</h3>
+          <p>Retiro de trabajos espirituales, entierros y energías negativas para su liberación.</p>
+        </div>
+        <span class="flecha-servicio">›</span>
+      </div>
+      <div class="tarjeta-servicio">
+        <img src="imagenes/servicio2.avif" alt="Alejamiento">
+        <div class="texto-servicio">
+          <h3>Alejamiento</h3>
+          <p>Separación de malas influencias, personas negativas, vicios, drogas y malas actitudes.</p>
+        </div>
+        <span class="flecha-servicio">›</span>
+      </div>
+      <div class="tarjeta-servicio">
+        <img src="imagenes/servicio3.avif" alt="Amarre de amor">
+        <div class="texto-servicio">
+          <h3>Amarre de amor</h3>
+          <p>Rituales espirituales para fortalecer la unión, despertar sentimientos y atraer el amor.</p>
+        </div>
+        <span class="flecha-servicio">›</span>
+      </div>
+      <div class="tarjeta-servicio">
+        <img src="imagenes/servicio4.avif" alt="Limpieza espiritual">
+        <div class="texto-servicio">
+          <h3>Limpieza espiritual</h3>
+          <p>Eliminación de malas energías, cargas negativas y bloqueos espirituales. Renueva tu energía y recupera tu tranquilidad.</p>
+        </div>
+        <span class="flecha-servicio">›</span>
+      </div>
+      <div class="tarjeta-servicio">
+        <img src="imagenes/servicio5.avif" alt="Sanación">
+        <div class="texto-servicio">
+          <h3>Sanación</h3>
+          <p>Prácticas ancestrales de acompañamiento espiritual para tu bienestar y tranquilidad.</p>
+        </div>
+        <span class="flecha-servicio">›</span>
+      </div>
+    </div>
+  </div>
+  <img src="imagenes/union.png" alt="Unión decorativa" class="imagen-union">
+</div>
+<!-- FONDO 3 -->
+<div class="seccion-fondo">
+  <img src="imagenes/fondo3.avif" alt="Fondo 3" class="fondo-principal">
+  <div style="position:absolute;top:41%;left:6%;width:88%;z-index:15;text-align:left;padding:10px 0;">
+    <p style="font-size:1.1rem;line-height:1.4;font-weight:600;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000,0 3px 6px rgba(0,0,0,.95);">
+      Soy Óscar Interiano, curandero y guía espiritual con más de 40 años de experiencia. Llegando a tu vida para sanar enfermedades con rituales y prácticas ancestrales.
+    </p>
+  </div>
+  <img src="imagenes/union.png" alt="Unión decorativa" class="imagen-union">
+</div>
+<!-- FONDO 4 - TESTIMONIOS CON VIDEOS -->
+<div class="seccion-fondo fondo-testimonios">
+  <img src="imagenes/fondo4.avif" alt="Fondo 4" class="fondo-principal">
+  <div class="galeria-testimonios">
+    <div class="testimonio-item">
+      <img
+        src="imagenes/testimonio1.avif"
+        alt="Testimonio 1"
+        class="testimonio-miniatura"
+        data-video="https://res.cloudinary.com/hjj8onmt/video/upload/v1793628207/WhatsApp_Video_2026-11-01_at_12.15.43_PM.mp4"
+      >
+      <p>Testimonio 1</p>
+    </div>
+    <div class="testimonio-item">
+      <img
+        src="imagenes/testimonio2.avif"
+        alt="Testimonio 2"
+        class="testimonio-miniatura"
+        data-video="https://res.cloudinary.com/hjj8onmt/video/upload/v1793628218/WhatsApp_Video_2026-11-01_at_12.18.44_PM.mp4"
+      >
+      <p>Testimonio 2</p>
+    </div>
+    <div class="testimonio-item">
+      <img
+        src="imagenes/testimonio3.avif"
+        alt="Testimonio 3"
+        class="testimonio-miniatura"
+        data-video="https://res.cloudinary.com/hjj8onmt/video/upload/v1793628499/WhatsApp_Video_2026-11-01_at_12.18.39_PM.mp4"
+      >
+      <p>Testimonio 3</p>
+    </div>
+    <div class="testimonio-item">
+      <img
+        src="imagenes/testimonio4.avif"
+        alt="Testimonio 4"
+        class="testimonio-miniatura"
+        data-video="https://res.cloudinary.com/hjj8onmt/video/upload/v1793628490/WhatsApp_Video_2026-11-01_at_12.18.53_PM.mp4"
+      >
+      <p>Testimonio 4</p>
+    </div>
+  </div>
+  <img src="imagenes/union.png" alt="Unión decorativa" class="imagen-union">
+</div>
+<!-- FONDO 5 -->
+<div class="seccion-fondo">
+  <img src="imagenes/fondo5.avif" alt="Fondo 5" class="fondo-principal">
+  <img src="imagenes/logo.png" alt="Logo" class="logo-mesa-madera">
+  <div class="boton-whatsapp-fondo5">
+    <div class="btn-whatsapp-lianas">
+      <i class="fa-solid fa-leaf"></i>
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>Consulta por WhatsApp</span>
+      <i class="fa-solid fa-leaf"></i>
+    </div>
+  </div>
+</div>
+<!-- BOTÓN FLOTANTE -->
+<div class="boton-whatsapp-madera" aria-label="Botón de WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</div>
+<!-- ANIMACIÓN DE ENTRADA DE SERVICIOS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const fondo = document.querySelector(".fondo-servicios");
+  if (!fondo) return;
+  const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        fondo.classList.add("animar");
+        observador.unobserve(fondo);
+      }
+    });
+  }, { threshold: 0.15 });
+  observador.observe(fondo);
+});
+</script>
+<!-- REPRODUCCIÓN DE TESTIMONIOS AL TOCAR LA MINIATURA -->
+<script>
+document.querySelectorAll(".testimonio-miniatura").forEach((miniatura) => {
+  miniatura.addEventListener("click", () => {
+    const videoUrl = miniatura.dataset.video;
+    const video = document.createElement("video");
+    video.src = videoUrl;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "none";
+    video.style.width = "100%";
+    video.style.objectFit = "contain";
+    video.style.borderRadius = "12px";
+    video.style.border = "2px solid #d6b477";
+    video.style.boxShadow = "0 4px 12px rgba(0,0,0,.65)";
+    miniatura.replaceWith(video);
+    video.play().catch(() => {
+      video.controls = true;
+    });
+  });
+});
+</script>
+<!-- CONEXIÓN DE BOTONES Y TARJETAS CON WHATSAPP -->
+<script>
+const enlaceWhatsApp = "https://wa.me/19312557955?text=Hola%2C%20Oscar.%20Quiero%20informacion%20sobre%20sus%20servicios.";
+
+document.querySelectorAll(".btn-whatsapp-lianas, .tarjeta-servicio, .boton-whatsapp-madera").forEach((elemento) => {
+  elemento.style.cursor = "pointer";
+  elemento.addEventListener("click", () => {
+    window.open(enlaceWhatsApp, "_blank");
+  });
+});
+</script>
+</body>
+</html>
